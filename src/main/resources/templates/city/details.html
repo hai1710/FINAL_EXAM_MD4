@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<form th:action="@{/city/update}" th:object="${city}" method="post">
+    <td><h2><a href="/city/list">City List</a></h2></td>
+
+    <h2 th:text="'City:'+${city.name}"></h2>
+
+    <input th:type="hidden" name="id" th:field="*{id}" readonly>
+    <table>
+        <tr>
+            <td>ten:</td>
+            <td><input type="text" th:field="*{name}" readonly/></td>
+        </tr>
+        <tr>
+            <td>dien tich:</td>
+            <td><input type="text" th:field="*{area}" readonly/></td>
+        </tr>
+        <tr>
+            <td>dan so:</td>
+            <td><input type="text" th:field="*{population}" readonly/></td>
+        </tr>
+        <tr>
+            <td>GDP:</td>
+            <td><input type="text" th:field="*{GDP}" readonly/></td>
+        </tr>
+        <tr>
+            <td>mo ta:</td>
+            <td><textarea th:field="*{description}" readonly></textarea></td>
+        </tr>
+        <tr>
+            <td>quoc gia:</td>
+            <td>
+            <input type="text" th:field="*{nation.name}" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <td><a th:href="@{'/city/edit/' + ${city.id}}">Edit</a></td>
+            <td><a th:href="@{'/city/delete/' + ${city.id}}">Delete</a></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
